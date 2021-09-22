@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: my-dep
+spec:
+  replicas: 2
+  selector: 
+    matchLabels:
+      finder: podx
+  template:
+    metadata:
+      labels:
+        finder: podx
+    spec:
+      containers: 
+      - name: my-container
+        image: tasdidur/test-ingress
+        volumeMounts:
+          - name: my-config
+            mountPath: /home/config
+      volumes:
+        - name: my-config
+          configMap: 
+            name: confg

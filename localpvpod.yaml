@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: localpv
+spec:
+  nodeSelector:
+      name: node1
+  containers:
+  - image: tasdidur/test-ingress
+    name: your-container
+    volumeMounts:
+    - mountPath: /home/x.file
+      name: example-pv
+  volumes:
+  - name: host-test
+    persistentVolume:
+    - name: example-pv

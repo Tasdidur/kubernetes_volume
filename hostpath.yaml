@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: hostpath
+spec:
+  nodeSelector:
+      name: node1
+  containers:
+  - image: tasdidur/test-ingress
+    name: your-container
+    volumeMounts:
+    - mountPath: /home/x.file
+      name: host-test
+  volumes:
+  - name: host-test
+    hostPath: 
+      path: /home/x.file
+      type: FileOrCreate

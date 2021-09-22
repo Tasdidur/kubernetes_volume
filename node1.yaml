@@ -1,0 +1,117 @@
+apiVersion: v1
+kind: Node
+metadata:
+  annotations:
+    kubeadm.alpha.kubernetes.io/cri-socket: unix:///run/containerd/containerd.sock
+    node.alpha.kubernetes.io/ttl: "0"
+    volumes.kubernetes.io/controller-managed-attach-detach: "true"
+  creationTimestamp: "2021-09-22T04:16:25Z"
+  labels:
+    beta.kubernetes.io/arch: amd64
+    beta.kubernetes.io/os: linux
+    kubernetes.io/arch: amd64
+    kubernetes.io/hostname: volcls-worker
+    kubernetes.io/os: linux
+    name: node1
+  name: volcls-worker
+  resourceVersion: "35847"
+  uid: bd2cd60a-c35e-4e7a-972b-bc02f227591b
+spec:
+  podCIDR: 10.244.2.0/24
+  podCIDRs:
+  - 10.244.2.0/24
+  providerID: kind://docker/volcls/volcls-worker
+status:
+  addresses:
+  - address: 172.18.0.3
+    type: InternalIP
+  - address: volcls-worker
+    type: Hostname
+  allocatable:
+    cpu: "4"
+    ephemeral-storage: 131303144Ki
+    hugepages-1Gi: "0"
+    hugepages-2Mi: "0"
+    memory: 16264716Ki
+    pods: "110"
+  capacity:
+    cpu: "4"
+    ephemeral-storage: 131303144Ki
+    hugepages-1Gi: "0"
+    hugepages-2Mi: "0"
+    memory: 16264716Ki
+    pods: "110"
+  conditions:
+  - lastHeartbeatTime: "2021-09-22T09:22:23Z"
+    lastTransitionTime: "2021-09-22T04:16:25Z"
+    message: kubelet has sufficient memory available
+    reason: KubeletHasSufficientMemory
+    status: "False"
+    type: MemoryPressure
+  - lastHeartbeatTime: "2021-09-22T09:22:23Z"
+    lastTransitionTime: "2021-09-22T04:16:25Z"
+    message: kubelet has no disk pressure
+    reason: KubeletHasNoDiskPressure
+    status: "False"
+    type: DiskPressure
+  - lastHeartbeatTime: "2021-09-22T09:22:23Z"
+    lastTransitionTime: "2021-09-22T04:16:25Z"
+    message: kubelet has sufficient PID available
+    reason: KubeletHasSufficientPID
+    status: "False"
+    type: PIDPressure
+  - lastHeartbeatTime: "2021-09-22T09:22:23Z"
+    lastTransitionTime: "2021-09-22T04:16:46Z"
+    message: kubelet is posting ready status
+    reason: KubeletReady
+    status: "True"
+    type: Ready
+  daemonEndpoints:
+    kubeletEndpoint:
+      Port: 10250
+  images:
+  - names:
+    - k8s.gcr.io/kube-proxy:v1.21.1
+    sizeBytes: 132714699
+  - names:
+    - k8s.gcr.io/kube-apiserver:v1.21.1
+    sizeBytes: 126834637
+  - names:
+    - k8s.gcr.io/kube-controller-manager:v1.21.1
+    sizeBytes: 121042741
+  - names:
+    - k8s.gcr.io/etcd:3.4.13-0
+    sizeBytes: 86742272
+  - names:
+    - docker.io/kindest/kindnetd:v20210326-1e038dc5
+    sizeBytes: 53960776
+  - names:
+    - k8s.gcr.io/kube-scheduler:v1.21.1
+    sizeBytes: 51865396
+  - names:
+    - k8s.gcr.io/build-image/debian-base:v2.1.0
+    sizeBytes: 21086532
+  - names:
+    - docker.io/rancher/local-path-provisioner:v0.0.14
+    sizeBytes: 13367922
+  - names:
+    - k8s.gcr.io/coredns/coredns:v1.8.0
+    sizeBytes: 12945155
+  - names:
+    - docker.io/tasdidur/test-ingress@sha256:0acc1f68f5f88078f169db593f930a971b82f6b3815b6668f5025bc789c4deb7
+    - docker.io/tasdidur/test-ingress:latest
+    sizeBytes: 6231497
+  - names:
+    - k8s.gcr.io/pause:3.5
+    sizeBytes: 301416
+  nodeInfo:
+    architecture: amd64
+    bootID: f8c21b9b-98cf-4353-93fb-024e187380d1
+    containerRuntimeVersion: containerd://1.5.2
+    kernelVersion: 5.11.0-34-generic
+    kubeProxyVersion: v1.21.1
+    kubeletVersion: v1.21.1
+    machineID: b12424ff816a47d093936e48b5fcb1cf
+    operatingSystem: linux
+    osImage: Ubuntu 21.04
+    systemUUID: 2a5d060c-96ac-4769-9edb-7500777797cc

@@ -1,0 +1,18 @@
+kind create cluster --config volcls.yaml
+kubectl create configmap confg --from-file=usernames --from-file=passwords
+
+kubectl exec -it my-dep-6cc8787c95-84w6m -- sh
+
+// watch the node file system
+/*
+office@tasdid-pc ~ [1]> docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED       STATUS       PORTS                       NAMES
+28988d928108   kindest/node:v1.21.1   "/usr/local/bin/entr…"   4 hours ago   Up 4 hours                               volcls-worker
+bb8d32bc9a93   kindest/node:v1.21.1   "/usr/local/bin/entr…"   4 hours ago   Up 4 hours                               volcls-worker2
+98a6f96a4697   kindest/node:v1.21.1   "/usr/local/bin/entr…"   4 hours ago   Up 4 hours   127.0.0.1:35133->6443/tcp   volcls-control-plane
+office@tasdid-pc ~> docker exec -it 28988d928108 bash
+root@volcls-worker:/# ls
+*/
+
+cat > x.file # to write
+cat x.file # to see

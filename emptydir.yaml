@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: mount-empty-dir
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      finder: podemt
+  template:
+    metadata: 
+      labels:
+        finder: podemt
+    spec:
+      containers:
+      - name: empty-dir
+        image: tasdidur/test-ingress
+        volumeMounts:
+        - name: empt-dir
+          mountPath: /home/tasdid
+      volumes:
+      - name: empt-dir
+        emptyDir: {}
